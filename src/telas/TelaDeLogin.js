@@ -5,7 +5,7 @@ import img from '../img/telafundo.jpg';
 import Styles from '../styles/Styles'
 
 
-/*class TelaDeLogin extends React.Component {
+class TelaDeLogin extends React.Component {
     constructor() {
         super();
             this.state = {
@@ -15,20 +15,13 @@ import Styles from '../styles/Styles'
     render() {
         return(
             <SafeAreaView style={{flex: 1}}>
+                <ImageBackground source={img} style={{flex: 1}}>
              <Text>ola mundo somos todos uno solo</Text>
-
+               </ImageBackground>
             </SafeAreaView>
         )
     }
 }
 
-export default TelaDeLogin;*/
-
-function TelaDeLogin(){
-    return (
-        <SafeAreaView>
-            <Text>ola mundo</Text>
-        </SafeAreaView>
-    )
-}
 export default TelaDeLogin;
+

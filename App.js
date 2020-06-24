@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { SafeAreaView, View, Text } from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import 'react-native-gesture-handler';
 import TelaDeLogin from './src/telas/TelaDeLogin';
 
