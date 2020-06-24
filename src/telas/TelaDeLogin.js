@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import { SafeAreaView, View, ImageBackground} from 'react-native'
+import { SafeAreaView, Text, View, ImageBackground} from 'react-native'
 
 import img from '../img/telafundo.jpg';
 import Styles from '../styles/Styles'
 
 
-class TelaDeLogin extends Component {
+/*class TelaDeLogin extends React.Component {
     constructor() {
         super();
             this.state = {
@@ -15,13 +15,20 @@ class TelaDeLogin extends Component {
     render() {
         return(
             <SafeAreaView style={{flex: 1}}>
-                <ImageBackground source={img} styles={Styles.background}>
-
-                </ImageBackground>
+             <Text>ola mundo somos todos uno solo</Text>
 
             </SafeAreaView>
         )
     }
 }
 
+export default TelaDeLogin;*/
+
+function TelaDeLogin(){
+    return (
+        <SafeAreaView>
+            <Text>ola mundo</Text>
+        </SafeAreaView>
+    )
+}
 export default TelaDeLogin;
