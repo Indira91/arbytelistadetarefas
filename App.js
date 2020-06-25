@@ -12,7 +12,7 @@ function ListaDeTarefas(){
   return (
     <NavigationContainer>
       <Stack.Navigator >
-        <Stack.Screen name='Login' component={TelaDeLogin}/>
+        <Stack.Screen name='Login' component={TelaDeLogin} options={{ headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
 

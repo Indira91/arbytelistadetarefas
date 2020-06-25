@@ -16,7 +16,9 @@ class TelaDeLogin extends React.Component {
         return(
             <SafeAreaView style={{flex: 1}}>
                 <ImageBackground source={img} style={{flex: 1}}>
-             <Text>ola mundo somos todos uno solo</Text>
+                  <View>
+                    <Text style={Styles.textum}>LOGIN</Text>
+                  </View>
                </ImageBackground>
             </SafeAreaView>
         )
