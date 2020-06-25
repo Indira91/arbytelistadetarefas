@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import { SafeAreaView, Text, View, ImageBackground} from 'react-native'
 
 import img from '../img/telafundo.jpg';
-import Styles from '../styles/Styles'
+import Styles from '../styles/Styles';
+import BotaoPadrao from '../componentes/BotaoPadrao';
 
 
 class TelaDeLogin extends React.Component {
@@ -16,9 +17,12 @@ class TelaDeLogin extends React.Component {
         return(
             <SafeAreaView style={{flex: 1}}>
                 <ImageBackground source={img} style={{flex: 1}}>
-                  <View>
+                  <View style={{alignItems: 'center', flex: 1, justifyContent: "space-evenly"}}>
                     <Text style={Styles.textum}>LOGIN</Text>
-                  </View>
+                    <BotaoPadrao text='Entrar' onPress={() => this.props.navigation.navigate('AdicionaTarefa')} />
+                    <BotaoPadrao text='Cadastre-se' onPress={() => this.props.navigation.navigate('TelaCadastro')}/>
+    
+                  </View>  
                </ImageBackground>
             </SafeAreaView>
         )
