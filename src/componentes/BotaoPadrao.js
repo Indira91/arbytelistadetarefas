@@ -12,9 +12,9 @@ export default function BotaoPadrao(props) {
         onPress={props.onPress}
        style={{
             alingnItems: 'center',
-            borderRadius: 20,
+            borderRadius: 25,
             height: 57,
-            width: 200, 
+            width: 195, 
             backgroundColor: '#FF8000',
             borderColor: 'black',
             borderWidth: 2,

@@ -16,8 +16,8 @@ function ListaDeTarefas(){
     <NavigationContainer>
       <Stack.Navigator >
         <Stack.Screen name='Login' component={TelaDeLogin} options={{ headerShown: false}}/>
-        <Stack.Screen name='AdicionaTarefa' component={TelaAdicionaTarefa} />
-        <Stack.Screen name='TelaCadastro' component={TelaDeCadastro} />
+        <Stack.Screen name='AdicionaTarefa' component={TelaAdicionaTarefa}  />
+        <Stack.Screen name='TelaCadastro' component={TelaDeCadastro} options={{ headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
 
