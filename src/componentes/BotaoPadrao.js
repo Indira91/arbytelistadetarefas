@@ -8,8 +8,7 @@ export default function BotaoPadrao(props) {
     };
 
     return (
-    <TouchableOpacity 
-        onPress={props.onPress}
+    <TouchableOpacity   
        style={{
             alingnItems: 'center',
             borderRadius: 25,

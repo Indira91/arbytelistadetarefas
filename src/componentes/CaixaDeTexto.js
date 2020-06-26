@@ -3,7 +3,7 @@ import {TextInput} from 'react-native';
 
 export default function CaixaDeTexto (props) {
     return (
-        <TextInput placeholderTextColor= '#848484' placeholder= {props.placeholder}
+        <TextInput  
         style={{
             backgroundColor:'#81BEF7',
             textAlign: 'center',
@@ -16,6 +16,8 @@ export default function CaixaDeTexto (props) {
         }}
         onChangeText={props.onChangeText}
         value={props.value}
+        placeholder= {props.placeholder}
+        placeholderTextColor= '#848484'
         />
         
     )
