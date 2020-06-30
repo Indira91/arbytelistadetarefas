@@ -1,23 +1,36 @@
 import React, { Component } from 'react';
-import { SafeAreaView, Text, View, ImageBackground } from 'react-native'
-
+import { SafeAreaView, Text, View, ImageBackground, Alert, AsyncStorage } from 'react-native'
+import 'react-native-gesture-handler';
 import img from '../img/telafundo.jpg';
 import Styles from '../styles/Styles';
 import BotaoPadrao from '../componentes/BotaoPadrao';
 import CaixaDeTexto from '../componentes/CaixaDeTexto';
-import { logar } from '../API/usuario'
+import { logar } from '../API/usuario';
 
 
-class TelaDeLogin extends React.Component {
+class  TelaDeLogin extends React.Component {
     constructor() {
         super();
         this.state = {
-            email: ''
+            email: '',
+            nome:''
         }
+    };
+
+    MeuLogin = ({ navigation }) => {
+        logar(this.state.email) 
+        .then((response) =>{               
+            return AsyncStorage.setItem('dadosUsuario', JSON.stringify(response.data))          
+        })
+        .then(() => {
+            this.props.navigation.navigate('AdicionaTarefa')
+        })
+        .catch(function (error) {
+            Alert.alert('Usuario Invalido!')
+            console.log(error);
+        });
     }
-    loginDoUsuario = () => {
-        logar()
-    }
+   
     render() {
 
         return (
@@ -31,7 +44,7 @@ class TelaDeLogin extends React.Component {
                             <CaixaDeTexto value={this.state.email} placeholder='email' onChangeText={email => this.setState({ email: this.state.email = email })} />
                         </View>
                         <View style={{ justifyContent: 'space-around', flex: 3 }}>
-                            <BotaoPadrao text='Entrar' onPress={() => this.props.navigation.navigate('AdicionaTarefa')} />
+                            <BotaoPadrao text='Entrar' onPress={this.MeuLogin} />
                         </View>
                         <View style={{ justifyContent: 'flex-start', flex: 3 }}>
                             <BotaoPadrao text='Cadastre-se' onPress={() => this.props.navigation.navigate('TelaCadastro')} />

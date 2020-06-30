@@ -1,36 +1,57 @@
-import React, {Component} from 'react';
-import { SafeAreaView, Text, View, ImageBackground, Image} from 'react-native'
+import React, {Component, useEffect, useState} from 'react';
+import { SafeAreaView, Text, View, ImageBackground, AsyncStorage, Alert} from 'react-native';
+import axios from 'axios';
 
 import img from '../img/telafundo.jpg';
 import Styles from '../styles/Styles';
 import BotaoPadrao from '../componentes/BotaoPadrao';
-import {EntradaTarefa} from '../componentes/EntradaTarefa';
-import CartaoTarefa from '../componentes/CartaoTarefa';
+import {EntradaTarefa, Tarefas} from '../componentes/EntradaTarefa';
+import 'react-native-gesture-handler';
 
 
-class TelaAdicionaTarefa extends React.Component {
-    constructor() {
-        super();
-            this.state = {
-                tarefa: ''
-            }
-    }
-    render() {
+    function TelaAdicionaTarefa({ navigation, dispatch, tasks }){
+
+        const [dadosUsuario, setdadosUsuario] = useState({ user: {} })
+
+            useEffect(() => {
+                AsyncStorage.getItem('dadosUsuario')
+                    .then((dadosUsuario) => {
+                        if (dadosUsuario !== null) {
+                            const parsed = JSON.parse(dadosUsuario);
+					        setdadosUsuario(parsed)
+					        return parsed.token;  
+                        } 
+                        })
+                    .catch(err => { console.log('primeiro catch', err); navigation.navigate('Login') })
+                    .then((token) => {
+                            if (!token) return;
+                            return axios.get('https://arbyte-todo-list-api.herokuapp.com/tasks', {
+                                headers: {
+                                    Authorization: `Bearer ${token}`
+                                }
+                            })
+                        })
+                    //.then(res => {
+                            //dispatch(adionarLista(res.data))
+                        //})
+                    .catch(err => console.log('erro de rede', err))
+                }, [])
+
         return(
             <SafeAreaView style={{flex: 1}}>
                 <ImageBackground source={img} style={{flex: 1}}>
                     <View style={{alignItems: 'center', flex: 1, justifyContent: "space-evenly"}}>
                         <View style={{alignItems: "flex-start", flex: 2, marginTop: 8}}>
-                            <Text style={Styles.textum}>Olá indira,</Text>
-                            <Text style={Styles.textres}>Aqui pode cadastrar suas tarefas</Text>
+                            <Text style={Styles.textum}>Ola {dadosUsuario.user.fullName}, </Text>
+                            <Text style={Styles.textres}>Aqui pode cadastrar suas tarefas!</Text>
                             <EntradaTarefa/>
-
                         </View> 
-                        <View style={{alignItems: "flex-start", flex: 4}}>
-
+                        <View style={{alignItems: "flex-start", flex: 3}}>
+                            <Tarefas/>
+                          
                         </View>
                         <View style={{justifyContent: 'flex-end', flex: 2, marginBottom: 20}}>
-                            <BotaoPadrao text='Sair' onPress={() => this.props.navigation.navigate('Login')} />   
+                            <BotaoPadrao text='Sair' onPress={() => navigation.navigate('Login')} />   
                         </View>
 
                     </View> 
@@ -40,7 +61,7 @@ class TelaAdicionaTarefa extends React.Component {
             </SafeAreaView>
         )
     }
-}
+
 
 export default TelaAdicionaTarefa;
 

@@ -24,13 +24,9 @@ class TelaDeLogin extends React.Component {
                 this.props.navigation.navigate('Login')
             })
             .catch(() => {
-                if (this.state.email != ''){
-                Alert.alert('Usuario já existe')
-                }else{
                 Alert.alert('Erro ao cadastrar, tente novamente')   
-                }
-                
-             })
+                }       
+             )
     }
 
     render() {
