@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { TextInput, Text, View, Image, SafeAreaView, ScrollView } from 'react-native';
-import CartaoTarefa from '../componentes/CartaoTarefa';
+import {CartaoAddTarefa} from '../componentes/CartaoAddTarefa';
 
 export function EntradaTarefa(props) {
     return (
@@ -28,7 +29,7 @@ export function EntradaTarefa(props) {
                 />
             </View>
             <View style={{ flex: 1.8 }}>
-                <CartaoTarefa />
+                <CartaoAddTarefa/>
             </View>
         </SafeAreaView>
 
@@ -37,31 +38,32 @@ export function EntradaTarefa(props) {
 
 export function Tarefas(props) {
     return (
-        <ScrollView
-            style={{
-                backgroundColor: '#81BEF7',
-                height: 45,
-                width: 380,
-                borderRadius: 3,
-                opacity: 1,
-                borderWidth: 1,
-                marginTop: 25,
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-            }}>
-            <View>
-                <TextInput
-                    style={{ fontSize: 20 }}
-                    onChangeText={props.onChangeText}
-                    value={props.value}
-                    placeholder={'Insira uma tarefa'}
-                    placeholderTextColor='#848484'
-                    maxLength={40}
-                />
-            </View>
-            
+        <ScrollView>
+            <SafeAreaView
+                style={{
+                    backgroundColor: '#81BEF7',
+                    height: 45,
+                    width: 380,
+                    borderRadius: 3,
+                    opacity: 1,
+                    borderWidth: 1,
+                    marginTop: 25,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                }}>
+                <View>
+                    <TextInput
+                        style={{ fontSize: 20 }}
+                        onChangeText={props.onChangeText}
+                        value={props.value}
+                        placeholder={'Insira uma tarefa'}
+                        placeholderTextColor='#848484'
+                        maxLength={40}
+                    />
+                </View>
 
+            </SafeAreaView>
         </ScrollView>
     )
 };

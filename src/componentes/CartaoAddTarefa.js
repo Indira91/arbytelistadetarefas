@@ -3,7 +3,7 @@ import { StyleSheet, Image } from 'react-native';
 import { CheckBox } from 'react-native-elements'
 
 
-export default function CartaoTarefa(props) {
+export function CartaoAddTarefa(props) {
   return (
     <CheckBox 
       uncheckedIcon={<Image source={require('../img/canvas.png')} style={{height: 40, width: 40, tintColor:'green' }}/>}
@@ -13,4 +13,12 @@ export default function CartaoTarefa(props) {
   )
 }
 
+export function CartaoDeleTarefa(props) {
+  return (
+    <CheckBox
+    uncheckedIcon={<Image source={require('../img/canvas.png')} style={{height: 40, width: 40, tintColor:'green' }}/>}
+    />
+  )
+
+}
 //      checkedIcon={<Image source={require('../img/canvas.png' )} style={{height: 30, width:30}} />}
