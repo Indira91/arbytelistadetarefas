@@ -12,7 +12,7 @@ export default function CaixaDeTexto (props) {
             borderRadius: 5,
             opacity: 1,
             borderWidth: 1,
-            fontSize: 23
+            fontSize: 26
         }}
         onChangeText={props.onChangeText}
         value={props.value}

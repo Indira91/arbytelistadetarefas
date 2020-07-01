@@ -1,12 +1,12 @@
 
 const Styles = ({
     textum: {
-        fontSize: 50,
+        fontSize: 45,
         textAlign: 'center',
         fontWeight: "bold"
     },
     textdois: {
-        fontSize: 40,
+        fontSize: 35,
         textAlign: 'center',
         fontWeight: "bold"
     },
