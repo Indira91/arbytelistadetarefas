@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import { SafeAreaView, Text, View, ImageBackground} from 'react-native'
 
 import img from '../img/telafundo.jpg';
+
 import Styles from '../styles/Styles'
 
 
-class TelaDeLogin extends React.Component {
+class TelaListaTarefa extends React.Component {
     constructor() {
         super();
             this.state = {
@@ -23,4 +24,4 @@ class TelaDeLogin extends React.Component {
     }
 }
 
-export default TelaDeLogin;
+export default TelaListaTarefa;

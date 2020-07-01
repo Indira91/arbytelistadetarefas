@@ -17,3 +17,13 @@ export function logar(email) {
         }
     )
 }
+
+export function nomes(nome, email) {
+    return axios.post('https://arbyte-todo-list-api.herokuapp.com/users/login',
+        {
+            email: email,
+            fullName: nome
+
+        }
+    )
+}
