@@ -58,15 +58,15 @@ export function EntradaTarefa(props) {
         }}>
             <View style={{ flex: 14 }}>
                 <TextInput
-                    style={{ fontSize: 20 }}
+                    style={{ fontSize: 18 }}
                     onChangeText={props.onChangeText}
                     value={props.value}
                     placeholder={'Insira uma tarefa'}
                     placeholderTextColor='#848484'
-                    maxLength={30}
+                    maxLength={40}
                 />
             </View>
-            <View style={{ flex: 2.8 }}>
+            <View style={{ flex: 2.6 }}>
                 <CartaoAddTarefa />
             </View>
         </SafeAreaView>
